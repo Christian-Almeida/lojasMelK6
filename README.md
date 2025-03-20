@@ -1,2 +1,2 @@
-# lojasMelK6
+# Lojas Mel - K6
 Projeto engloba, API e Teste em K6...
