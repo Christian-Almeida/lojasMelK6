@@ -10,7 +10,7 @@ const conectarDB = async () => {
   } catch (error) {
     console.log("Erro ao conectar ao banco de dados", error);
     process.exit(1);
-  } 
+  }
 };
 
 export default conectarDB;
