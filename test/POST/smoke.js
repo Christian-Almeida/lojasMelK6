@@ -27,7 +27,7 @@ export function handleSummary(data) {
 
     const jsonAPK = JSON.stringify({
       nome: `Smoke - ${uuid.v4().substring(20)}`,
-      descricao: "teste",
+      descricao: "Loren ipsulum",
     });
 
     const cabecalho = {
