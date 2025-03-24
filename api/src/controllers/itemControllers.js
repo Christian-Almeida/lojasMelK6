@@ -4,10 +4,19 @@ import Item from "../models/Items.js";
 //Criar um novo item(Create)
 export const criarItem = async (req, res) => {
   try {
+    const ItemExistete = await Item.findOne({ nome: req.body.nome })
+
+    if (ItemExistete) {
+      return res.status(400).json({ error: "Item já cadastrado" })
+    }
+
     const novoItem = new Item(req.body);
     await novoItem.save();
+
     res.status(201).json(novoItem);
-  } catch (error) {
+  }
+
+ catch (error) {
     res.status(400).json({ error: "Erro ao criar um novo item" });
     res.body;
   }
@@ -18,7 +27,9 @@ export const listarItens = async (req, res) => {
   try {
     const items = await Item.find();
     res.json(items);
-  } catch (error) {
+  } 
+
+  catch (error) {
     res.status(500).json({ error: "Erro ao listar os itens" });
   }
 };
@@ -34,7 +45,8 @@ export const atualizarItem = async (req, res) => {
     if (!itemAtualizado)
       return res.status(404).json({ error: "Item não encontrado" });
     res.json(itemAtualizado);
-  } catch (error) {
+  }
+  catch (error) {
     res.status(400).json({ error: "Erro ao atualizar item" });
   }
 };
@@ -46,7 +58,7 @@ export const deletarItem = async (req, res) => {
     if (!itemDeletado)
       return res.status(404).json({ error: "Item não encontrado" });
     res.json({ message: "Item deletado com sucesso" });
-  } 
+  }
   catch (error) {
     res.status(500).json({ error: "Erro ao deletar item" });
   }
