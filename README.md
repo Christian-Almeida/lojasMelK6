@@ -4,16 +4,18 @@ Projeto engloba, API e Testes em K6...
 
 API faz um Crud completo utilizando REST.
 
-Os Testes em k6 feitos em k6 são: Smoke, Spike e Stress
+Os Testes são feitos k6 do tipo: Smoke, Spike e Stress
 
 ## Pré-Requisitos:
 
 ### API:
+
     - Node.js
     - MongoDB
     - Express
 
 ### K6:
+
     - Grafana K6
 
 ## Tipos de Metódos:
@@ -27,7 +29,7 @@ Os Testes em k6 feitos em k6 são: Smoke, Spike e Stress
 
 Necessário para criação e persistência dos dados, crie uma conta no site: [https://account.mongodb.com/account/login]
 
-> Criar o arquivo .env tem os dados do mongodb (necessário ao menos o usuário criar uma tabela)
+> Criar o arquivo .env, onde tem os dados do mongodb (necessário ao menos o usuário criar uma tabela)
 >
 > Escolher o *MONGO_URI* e a *PORTA*
 
@@ -35,7 +37,7 @@ Necessário para criação e persistência dos dados, crie uma conta no site: [h
 
 > Copie o código na branch api (Fork), abra na pasta API
 
-`npm install`
+`npm install ou yarn install`
 
 > Na pasta API, o comando abaixo liga a API, onde a mesma pode ser testada no Postman ou Insomia
 
