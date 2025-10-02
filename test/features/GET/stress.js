@@ -7,22 +7,21 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
 //Report
 export function handleSummary(data) {
-	const caminhoArquivo = './GET/spike-reporter.html';
+	const caminhoArquivo = './results/GET/stress-reporter.html';
 	return {
 		stdout: textSummary(data, { indent: ' ', enableColors: true }),
 		[caminhoArquivo]: htmlReport(data),
 	};
 }
 
-//Opções
 export const options = {
   stages: [
-    { duration: '30s', target: 2000 },
-    { duration: '10s', target: 0 },
+    { duration: '5m', target: 200 }, // Rampa sobe e fica 10min com 200 users
+    { duration: '10m', target: 200 }, // Fica 30min com 200 users
+    { duration: '2m', target: 0 }, // fica 5min sem nada, como se tivesse caido
   ],
 };
 
-//Teste de Pico
 export default () => {
   const url = http.get("http://localhost:3400/api/items");
 
@@ -30,5 +29,4 @@ export default () => {
     "O código do status é 200": (r) => r.status === 200,
   })
   sleep(1);
-
 };

@@ -8,7 +8,7 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
 //Report
 export function handleSummary(data) {
-	const caminhoArquivo = './POST/smoke-reporter.html';
+	const caminhoArquivo = './results/POST/smoke-reporter.html';
 	return {
 		stdout: textSummary(data, { indent: ' ', enableColors: true }),
 		[caminhoArquivo]: htmlReport(data),
